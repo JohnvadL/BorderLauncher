@@ -9,14 +9,16 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ScrollView;
 
-import com.border.launcher.IconCache;
 import com.border.launcher.LauncherAppState;
 import com.border.launcher.R;
 import com.border.launcher.compat.LauncherAppsCompat;
@@ -41,8 +43,6 @@ public class IconActivity extends Activity implements IconColorRecyclerViewAdapt
     public static String packageName;
     public static Integer newColor;
     public static String label;
-    private IconCache iconCache;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,25 +53,35 @@ public class IconActivity extends Activity implements IconColorRecyclerViewAdapt
         label = null;
 
         setContentView(R.layout.activity_icon);
-        setTitle("Change Icon Color");
+        getActionBar().hide();
         mPm = getApplicationContext().getPackageManager();
         mContext = getApplicationContext();
-        activityList = getActivityList();
 
+
+
+        RecyclerView recyclerView = findViewById(R.id.apps_list_color);
+        VerticalSpaceItemDecoration spaceDecoration = new VerticalSpaceItemDecoration(20);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 5));
+
+
+        activityList = getActivityList();
         Collections.sort(activityList, new Comparator<ActivityInfo>() {
             @Override
             public int compare(ActivityInfo lhs, ActivityInfo rhs) {
-                return lhs.loadLabel(mContext.getPackageManager()).toString().compareTo(
-                        rhs.loadLabel(mContext.getPackageManager()).toString()
+                return lhs.loadLabel(mContext.getPackageManager()).toString().toUpperCase().compareTo(
+                        rhs.loadLabel(mContext.getPackageManager()).toString().toUpperCase()
                 );
             }
         });
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.apps_list_color);
-        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+
         adapter = new IconColorRecyclerViewAdapter(mContext, activityList);
         adapter.setClickListener(this);
+        recyclerView.addItemDecoration(spaceDecoration);
         recyclerView.setAdapter(adapter);
+        recyclerView.setFocusable(false);
+
+
     }
 
     @Override
@@ -94,7 +104,7 @@ public class IconActivity extends Activity implements IconColorRecyclerViewAdapt
     }
 
     @Override
-    public void onItemClick(View view, int position) {
+    public void onItemClick(View view, final int position) {
         ColorPickerDialogSingleApp dialog = new ColorPickerDialogSingleApp(IconActivity.this);
 
         label = (String) activityList.get(position).loadLabel(mContext.getPackageManager());
@@ -146,9 +156,29 @@ public class IconActivity extends Activity implements IconColorRecyclerViewAdapt
                 packageName = null;
                 newColor = null;
                 label = null;
+                adapter.notifyItemChanged(position);
             }
         });
 
         dialog.show();
     }
+
+    public class VerticalSpaceItemDecoration extends RecyclerView.ItemDecoration {
+
+        private final int verticalSpaceHeight;
+
+        VerticalSpaceItemDecoration(int verticalSpaceHeight) {
+            this.verticalSpaceHeight = verticalSpaceHeight;
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+                                   RecyclerView.State state) {
+            outRect.top = verticalSpaceHeight;
+            outRect.left = 10;
+            outRect.right= 10;
+        }
+    }
+
+
 }

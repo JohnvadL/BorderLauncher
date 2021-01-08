@@ -1,8 +1,10 @@
 package com.border.launcher.iconcolor;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +52,12 @@ public class IconColorRecyclerViewAdapter extends RecyclerView.Adapter<IconColor
         holder.myTextView.setText(appName);
         Drawable logo = mIconCache.getFullResIcon(info);
         holder.logoView.setImageDrawable(logo);
+
+        GradientDrawable background = (GradientDrawable) holder.itemView.getBackground();
+        SharedPreferences preferences = mContext.getSharedPreferences
+                (mContext.getString(R.string.preference_key), Context.MODE_PRIVATE);
+        int intColor = preferences.getInt(appName, -1);
+        background.setStroke(2, intColor);
     }
 
     // total number of rows
@@ -62,12 +70,14 @@ public class IconColorRecyclerViewAdapter extends RecyclerView.Adapter<IconColor
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
         ImageView logoView;
+        View itemView;
 
-        ViewHolder(View itemView) {
-            super(itemView);
-            myTextView = (TextView) itemView.findViewById(R.id.app_name_color);
-            logoView = (ImageView) itemView.findViewById(R.id.color_change_app_logo);
-            itemView.setOnClickListener(this);
+        ViewHolder(View view) {
+            super(view);
+            myTextView =  view.findViewById(R.id.app_name_color);
+            logoView = view.findViewById(R.id.color_change_app_logo);
+            itemView = view;
+            view.setOnClickListener(this);
         }
 
         @Override

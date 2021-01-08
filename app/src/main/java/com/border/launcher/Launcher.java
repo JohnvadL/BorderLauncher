@@ -112,6 +112,7 @@ import com.border.launcher.keyboard.ViewGroupFocusHelper;
 import com.border.launcher.logging.FileLog;
 import com.border.launcher.logging.UserEventDispatcher;
 import com.border.launcher.model.WidgetsModel;
+import com.border.launcher.newsettings.NewSettingsActivity;
 import com.border.launcher.pageindicators.PageIndicator;
 import com.border.launcher.shortcuts.DeepShortcutManager;
 import com.border.launcher.shortcuts.DeepShortcutsContainer;
@@ -2666,9 +2667,10 @@ public class Launcher extends Activity
      */
     public void onClickSettingsButton(View v) {
         if (LOGD) Log.d(TAG, "onClickSettingsButton");
-        Intent intent = new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
-                .setPackage(getPackageName());
-        intent.setSourceBounds(getViewBounds(v));
+//        Intent intent = new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
+//                .setPackage(getPackageName());
+//        intent.setSourceBounds(getViewBounds(v));
+        Intent intent = new Intent(Launcher.this, NewSettingsActivity.class);
         startActivity(intent, getActivityLaunchOptions(v));
     }
 

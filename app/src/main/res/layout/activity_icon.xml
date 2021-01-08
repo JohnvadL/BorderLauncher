@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView android:id="@+id/scroll_view"
     android:layout_height="match_parent"
-    android:background="@color/all_apps_container_color"
-    tools:context="com.border.launcher.iconcolor.IconActivity">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/apps_list_color"
-        android:layout_width="match_parent"
+    <RelativeLayout
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="wrap_content">
 
-</RelativeLayout>
+        <ImageView
+            android:background="@drawable/pattern_cropped"
+            android:id="@+id/image_view"
+            android:layout_height="400dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent" />
+
+        <TextView
+            android:fontFamily="sans-serif-thin"
+            android:layout_alignBottom="@id/image_view"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:text="Pick Color for App"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/apps_list_color"
+            android:layout_below="@id/image_view"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+    </RelativeLayout>
+</ScrollView>

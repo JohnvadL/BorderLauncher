@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".newsettings.NewSettingsActivity"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@drawable/pattern_cropped"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/image_view"
+                />
+
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:textSize="40dp"
+                android:text="Welcome to Border"
+                android:layout_alignBottom="@id/image_view"
+                android:textColor="#FFFFFF"
+                />
+
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/where_do_you_click"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:textSize="25dp"
+                android:text="Change Icon Colors"
+                android:layout_below="@id/image_view"
+                android:textColor="#545454"
+                />
+
+            <Button
+                android:layout_below="@id/where_do_you_click"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@+id/all_apps_button"
+                android:fontFamily="sans-serif-thin"
+                android:background="@drawable/all_apps_recycler_view_outline"
+                android:text="All Apps"
+                android:padding="10dp"
+                android:textColor="#000000"
+                />
+
+            <Button
+                android:layout_below="@id/where_do_you_click"
+                android:layout_marginStart="100dp"
+                android:layout_alignStart="@id/all_apps_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/single_app_button"
+                android:fontFamily="sans-serif-thin"
+                android:background="@drawable/all_apps_recycler_view_outline"
+                android:text="Select App"
+                android:textColor="#000000"
+                android:padding="10dp"
+                />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

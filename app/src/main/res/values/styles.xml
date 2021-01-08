@@ -17,6 +17,11 @@
 -->
 
 <resources>
+    <style name="Theme.FullScreen" parent="android:Theme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
 
     <style name="Theme.Transparent" parent="android:Theme">
         <item name="android:windowIsTranslucent">true</item>
