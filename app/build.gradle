@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'mockito-extensions/org.mockito.plugins.MockMaker'
+    }
+
+    compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        useJack = false
+        applicationId 'com.border.launcher'
+        minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile "com.android.support:support-v4:${project.ANDROID_SUPPORT_VERSION}"
+    compile "com.android.support:palette-v7:${ANDROID_SUPPORT_VERSION}"
+    compile "com.android.support:recyclerview-v7:${project.ANDROID_SUPPORT_VERSION}"
+
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    compile fileTree(dir: 'lib', include: ['*.aar'])
+
+    compile project(path: ':openCVLibrary343')
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    compile project(path: ':library-release')
+    compile 'com.rarepebble:colorpicker:3.0.1'
+
+    // compile 'com.azeesoft.lib.colorpicker:colorpicker:1.0.8@aar'
+    compile 'com.android.support:appcompat-v7:25.4.0'
+}
