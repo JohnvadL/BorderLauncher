@@ -24,6 +24,7 @@
 
     <fragment
         android:name="com.border.launcher.QsbContainerView$QsbFragment"
+        android:id="@+id/qsb_fragment"
         android:layout_width="match_parent"
         android:tag="qsb_view"
         android:layout_height="match_parent"/>

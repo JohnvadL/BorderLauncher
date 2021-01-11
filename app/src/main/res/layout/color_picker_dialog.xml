@@ -9,9 +9,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/color_picker_title"
-        android:text="SELECT COLOR FOR ALL APPS "
+        android:text="SELECT COLOR"
         android:layout_centerHorizontal="true"
-        android:textSize="15dp"
+        android:textSize="30dp"
+        android:fontFamily="sans-serif-thin"
         android:textColor="#FFFFFF"
         android:layout_marginTop="30dp"
         android:paddingLeft="30dp"
@@ -25,7 +26,7 @@
         android:layout_below="@id/color_picker_title"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         app:density="12"
         app:lightnessSlider="true"
         app:lightnessSliderView="@+id/v_lightness_slider"
@@ -33,7 +34,7 @@
 
     <com.flask.colorpicker.slider.LightnessSlider
         android:id="@+id/v_lightness_slider"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_below="@id/color_picker_view"
         android:layout_centerHorizontal="true" />
@@ -46,7 +47,8 @@
         android:layout_marginTop="20dp"
         android:layout_alignParentBottom="true"
         android:textColor="#FFFFFF"
-        android:background="@drawable/button_outline"
+        android:fontFamily="sans-serif-thin"
+        android:background="#0c77a1"
         android:text="APPLY" />
 
 
@@ -57,9 +59,24 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@id/dialog_color_apply_button"
-        android:background="@drawable/button_outline"
+        android:background="#0c77a1"
         android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-thin"
         android:id="@+id/dialog_color_cancel_button"
         android:text="CANCEL" />
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_margin="50dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>

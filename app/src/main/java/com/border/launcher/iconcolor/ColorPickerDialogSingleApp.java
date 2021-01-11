@@ -40,7 +40,7 @@ public class ColorPickerDialogSingleApp extends Dialog implements View.OnClickLi
         colorPicker.setColor(Color.parseColor("#FFFFFF"), true);
 
         titleName = findViewById(R.id.color_picker_title);
-        titleName.setText("SELECT COLOR FOR " + IconActivity.label.toUpperCase());
+        titleName.setText(IconActivity.label.toUpperCase());
     }
 
     @Override
@@ -54,4 +54,5 @@ public class ColorPickerDialogSingleApp extends Dialog implements View.OnClickLi
 
         }
     }
+
 }

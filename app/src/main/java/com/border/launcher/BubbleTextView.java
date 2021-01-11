@@ -18,6 +18,7 @@ package com.border.launcher;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
@@ -30,6 +31,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -193,6 +195,14 @@ public class BubbleTextView extends TextView
             iconDrawable.setState(FastBitmapDrawable.State.DISABLED);
         }
         setIcon(iconDrawable);
+
+        SharedPreferences prefs = getContext().getSharedPreferences(getContext().getString
+                (R.string.preference_key), Context.MODE_PRIVATE);
+        int intColor = prefs.getInt(info.title.toString(), 2147483647);
+        if (intColor != 2147483647) {
+            setTextColor(intColor);
+        }
+
         setText(info.title);
         if (info.contentDescription != null) {
             setContentDescription(info.isDisabled()
@@ -415,7 +425,7 @@ public class BubbleTextView extends TextView
         float density = getResources().getDisplayMetrics().density;
         getPaint().setShadowLayer(density * AMBIENT_SHADOW_RADIUS, 0, 0, AMBIENT_SHADOW_COLOR);
         super.draw(canvas);
-        canvas.save(Canvas.CLIP_SAVE_FLAG);
+        canvas.save();
         canvas.clipRect(getScrollX(), getScrollY() + getExtendedPaddingTop(),
                 getScrollX() + getWidth(),
                 getScrollY() + getHeight(), Region.Op.INTERSECT);

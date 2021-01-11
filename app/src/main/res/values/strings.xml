@@ -21,6 +21,8 @@
     <skip />
 
     <!-- Application name -->
+
+    <string name="pref_qsb_color">Pref_QSB</string>
     <string name="app_name">Launcher3</string>
     <!-- Default folder name -->
     <string name="folder_name"></string>

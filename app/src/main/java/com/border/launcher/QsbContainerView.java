@@ -26,8 +26,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +91,7 @@ public class QsbContainerView extends FrameLayout {
             getActivity().registerReceiver(mRebindReceiver, filter);
         }
 
-        private FrameLayout mWrapper;
+        public FrameLayout mWrapper;
 
         @Override
         public View onCreateView(
@@ -103,6 +107,25 @@ public class QsbContainerView extends FrameLayout {
 
         private View createQsb(LayoutInflater inflater, ViewGroup container) {
             Launcher launcher = Launcher.getLauncher(getActivity());
+
+//            SharedPreferences prefs = launcher.getApplicationContext().getSharedPreferences(launcher.getApplicationContext().getString
+//                    (R.string.preference_key), Context.MODE_PRIVATE);
+//            Log.e("QSBContainerView", "Preferences changed register");
+//
+//            SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+//                @Override
+//                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+//                    View view = mWrapper.findViewById(R.id.qsb_linear_layout);
+//                    GradientDrawable drawable = (GradientDrawable)  view.getBackground();
+//                    drawable.setStroke(2, sharedPreferences.getInt(getContext().getString(R.string.pref_qsb_color),
+//                            Color.parseColor("#FFFFFF")));
+//                    Log.e("QSBContainerView", "Preferences changed listener");
+//                    view.refreshDrawableState();
+//                }
+//            };
+//            prefs.registerOnSharedPreferenceChangeListener(listener);
+
+
             mWidgetInfo = getSearchWidgetProvider(launcher);
             return getDefaultView(inflater, container, false);
 

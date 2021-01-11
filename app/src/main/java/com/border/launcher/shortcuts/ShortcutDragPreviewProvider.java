@@ -69,7 +69,7 @@ public class ShortcutDragPreviewProvider extends DragPreviewProvider {
                 config);
 
         canvas.setBitmap(b);
-        canvas.save(Canvas.MATRIX_SAVE_FLAG);
+        canvas.save();
         canvas.translate(DRAG_BITMAP_PADDING / 2, DRAG_BITMAP_PADDING / 2);
         canvas.scale(((float) size) / bounds.width(), ((float) size) / bounds.height(), 0, 0);
         canvas.translate(bounds.left, bounds.top);

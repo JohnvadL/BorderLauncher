@@ -80,8 +80,6 @@ public class IconActivity extends Activity implements IconColorRecyclerViewAdapt
         recyclerView.addItemDecoration(spaceDecoration);
         recyclerView.setAdapter(adapter);
         recyclerView.setFocusable(false);
-
-
     }
 
     @Override
@@ -102,6 +100,8 @@ public class IconActivity extends Activity implements IconColorRecyclerViewAdapt
 
         return list;
     }
+
+
 
     @Override
     public void onItemClick(View view, final int position) {
@@ -150,7 +150,6 @@ public class IconActivity extends Activity implements IconColorRecyclerViewAdapt
                     app.getIconCache().updateIconsForPkg(packageName, UserHandleCompat.myUserHandle());
                     app.getModel().onPackageIconsUpdated(new HashSet<>(Arrays.asList(packageName)),
                             UserHandleCompat.myUserHandle());
-                    // app.getModel().forceReload(); a
                     app.reloadWorkspace();
                 }
                 packageName = null;
@@ -180,5 +179,9 @@ public class IconActivity extends Activity implements IconColorRecyclerViewAdapt
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 }

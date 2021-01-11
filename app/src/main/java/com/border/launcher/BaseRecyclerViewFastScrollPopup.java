@@ -163,7 +163,7 @@ public class BaseRecyclerViewFastScrollPopup {
         if (isVisible()) {
             // Determine the alpha and prepare the canvas
             final int alpha = (int) (mAlpha * 255);
-            int restoreCount = c.save(Canvas.MATRIX_SAVE_FLAG);
+            int restoreCount = c.save();
             c.translate(mBgBounds.left, mBgBounds.top);
             mTmpRect.set(mBgBounds);
             mTmpRect.offsetTo(0, 0);

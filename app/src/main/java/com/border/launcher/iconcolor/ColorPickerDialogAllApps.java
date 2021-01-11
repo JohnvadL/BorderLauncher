@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.border.launcher.LauncherAppState;
 import com.border.launcher.R;
@@ -26,11 +27,14 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class ColorPickerDialogAllApps extends Activity implements View.OnClickListener{
+public class ColorPickerDialogAllApps extends Activity implements View.OnClickListener {
 
     ColorPickerView colorPicker;
     private PackageManager mPm;
     private Context mContext;
+    private ProgressBar progressBar;
+    Button applyButton;
+    Button cancelButton;
     LauncherAppState app = LauncherAppState.getInstanceNoCreate();
 
     @Override
@@ -41,33 +45,39 @@ public class ColorPickerDialogAllApps extends Activity implements View.OnClickLi
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.color_picker_dialog);
 
-        Button applyButton = findViewById(R.id.dialog_color_apply_button);
+        applyButton = findViewById(R.id.dialog_color_apply_button);
         applyButton.setOnClickListener(this);
 
-        Button cancelButton = findViewById(R.id.dialog_color_cancel_button);
+        cancelButton = findViewById(R.id.dialog_color_cancel_button);
         cancelButton.setOnClickListener(this);
 
+
+        progressBar = findViewById(R.id.progress_bar);
         colorPicker = findViewById(R.id.color_picker_view);
         mPm = getApplicationContext().getPackageManager();
         mContext = getApplicationContext();
     }
-    ProgressDialog dialog;
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.dialog_color_apply_button:
-                dialog = new ProgressDialog(ColorPickerDialogAllApps.this);
-                dialog.setCancelable(false);
-                dialog.show();
-
-                Thread mThread = new Thread(){
+                progressBar.setVisibility(View.VISIBLE);
+                applyButton.setVisibility(View.GONE);
+                cancelButton.setVisibility(View.GONE);
+                Thread mThread = new Thread() {
                     @Override
                     public void run() {
 
                         int newColor = colorPicker.getSelectedColor();
                         List<ActivityInfo> packages = getActivityList();
+                        progressBar.setMax(packages.size());
+                        int progress = 0;
                         List<String> packageNames = new ArrayList<>();
+
                         for (ActivityInfo activity : packages) {
+                            progressBar.setProgress(progress);
+
                             String label = activity.loadLabel(mPm).toString();
                             String packageName = activity.packageName;
 
@@ -100,13 +110,14 @@ public class ColorPickerDialogAllApps extends Activity implements View.OnClickLi
                             LauncherAppState app = LauncherAppState.getInstanceNoCreate();
                             app.getIconCache().updateIconsForPkg(packageName, UserHandleCompat.myUserHandle());
                             packageNames.add(packageName);
+                            progress++;
                         }
 
                         app.getModel().onPackageIconsUpdated(new HashSet<>(packageNames),
                                 UserHandleCompat.myUserHandle());
                         app.reloadWorkspace();
-                        dialog.dismiss();
                         finish();
+                        ColorPickerDialogAllApps.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 };
 
@@ -114,6 +125,8 @@ public class ColorPickerDialogAllApps extends Activity implements View.OnClickLi
                 break;
             default:
                 finish();
+                ColorPickerDialogAllApps.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
         }
     }
 
@@ -129,4 +142,11 @@ public class ColorPickerDialogAllApps extends Activity implements View.OnClickLi
         }
         return list;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
 }

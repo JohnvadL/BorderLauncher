@@ -66,7 +66,7 @@ class TransformedImageDrawable {
         mImage.setBounds(left, top, left + width, top + height);
     }
     public void draw(Canvas canvas) {
-        int c = canvas.save(Canvas.MATRIX_SAVE_FLAG);
+        int c = canvas.save();
         mImage.draw(canvas);
         canvas.restoreToCount(c);
     }

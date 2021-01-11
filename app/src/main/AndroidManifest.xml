@@ -38,6 +38,7 @@
         <activity
             android:name=".iconcolor.ColorPickerDialogAllApps"
             android:theme="@style/Theme.Transparent" />
+
         <!--
         Main launcher activity. When extending only change the name, and keep all the
         attributes and intent filters the same

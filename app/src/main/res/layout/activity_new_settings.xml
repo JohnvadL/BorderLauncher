@@ -77,6 +77,20 @@
                 android:padding="10dp"
                 />
 
+<!--            <Button-->
+<!--                android:layout_below="@id/single_app_button"-->
+<!--                android:layout_marginStart="100dp"-->
+<!--                android:layout_alignStart="@id/all_apps_button"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/search_color_change"-->
+<!--                android:fontFamily="sans-serif-thin"-->
+<!--                android:layout_marginTop="100dp"-->
+<!--                android:background="@drawable/all_apps_recycler_view_outline"-->
+<!--                android:text="Change Search Bar Color"-->
+<!--                android:textColor="#000000"-->
+<!--                android:padding="10dp"-->
+<!--                />-->
 
         </RelativeLayout>
 

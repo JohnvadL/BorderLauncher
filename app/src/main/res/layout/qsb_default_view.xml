@@ -22,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_margin="16dp"
+        android:id="@+id/qsb_linear_layout"
         android:layout_gravity="center_vertical"
         android:background="@drawable/new_qsb_background"
         android:elevation="2dp"

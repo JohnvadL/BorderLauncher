@@ -460,7 +460,7 @@ public class DeviceProfile {
         }
         return visibleChildren;
     }
-
+    public View qsbContainer;
     public void layout(Launcher launcher, boolean notifyListeners) {
         FrameLayout.LayoutParams lp;
         boolean hasVerticalBarLayout = isVerticalBarLayout();
@@ -482,7 +482,7 @@ public class DeviceProfile {
                 workspacePadding.bottom);
         workspace.setPageSpacing(getWorkspacePageSpacing());
 
-        View qsbContainer = launcher.getQsbContainer();
+        qsbContainer = launcher.getQsbContainer();
         lp = (FrameLayout.LayoutParams) qsbContainer.getLayoutParams();
         lp.topMargin = mInsets.top + workspacePadding.top;
         qsbContainer.setLayoutParams(lp);

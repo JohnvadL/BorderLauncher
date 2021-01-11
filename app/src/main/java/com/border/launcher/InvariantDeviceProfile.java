@@ -88,8 +88,8 @@ public class InvariantDeviceProfile {
     float hotseatIconSize;
     int defaultLayoutId;
 
-    DeviceProfile landscapeProfile;
-    DeviceProfile portraitProfile;
+    public DeviceProfile landscapeProfile;
+    public DeviceProfile portraitProfile;
 
     public Point defaultWallpaperSize;
 
