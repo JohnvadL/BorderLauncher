@@ -18,14 +18,12 @@ import org.opencv.imgproc.Imgproc;
 public class VisionHelper {
 
     public static Bitmap colorLogo(Bitmap bmp, Context context) {
-
         String a = "a";
         Integer.parseInt(a, 16);
         return null;
     }
 
     public static void getNewImage(Bitmap bmp, String packageName, Context context) {
-
 
         System.loadLibrary("opencv_java3");
 
