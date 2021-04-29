@@ -33,12 +33,12 @@
         android:restoreAnyVersion="true"
         android:supportsRtl="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".newsettings.NewSettingsActivity"></activity>
+        <activity android:name=".initialization.Initialization"></activity>
+        <activity android:name=".newsettings.NewSettingsActivity" />
         <activity android:name=".iconcolor.IconActivity" />
         <activity
             android:name=".iconcolor.ColorPickerDialogAllApps"
             android:theme="@style/Theme.Transparent" />
-
         <!--
         Main launcher activity. When extending only change the name, and keep all the
         attributes and intent filters the same
@@ -70,6 +70,7 @@
             android:label="@string/settings_button_text">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

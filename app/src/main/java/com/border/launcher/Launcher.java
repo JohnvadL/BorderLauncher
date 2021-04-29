@@ -107,6 +107,7 @@ import com.border.launcher.dragndrop.DragView;
 import com.border.launcher.dynamicui.ExtractedColors;
 import com.border.launcher.folder.Folder;
 import com.border.launcher.folder.FolderIcon;
+import com.border.launcher.initialization.Initialization;
 import com.border.launcher.keyboard.ViewGroupFocusHelper;
 import com.border.launcher.logging.FileLog;
 import com.border.launcher.logging.UserEventDispatcher;
@@ -497,7 +498,6 @@ public class Launcher extends Activity
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onCreate(savedInstanceState);
         }
-
 
     }
 
@@ -987,6 +987,9 @@ public class Launcher extends Activity
             startTime = System.currentTimeMillis();
             Log.v(TAG, "Launcher.onResume()");
         }
+
+        Intent myIntent = new Intent(Launcher.this, Initialization.class);
+        Launcher.this.startActivity(myIntent);
 
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.preOnResume();

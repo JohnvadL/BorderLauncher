@@ -70,7 +70,6 @@ public class VisionHelper {
         }
 
         if (mean_0 > 100 || mean_1 > 100 || mean_2 > 100) {
-            Log.e("VisionHelper", "Dilate");
             Imgproc.dilate(output, output, m);
         }
 
