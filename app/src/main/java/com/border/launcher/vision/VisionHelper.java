@@ -50,46 +50,8 @@ public class VisionHelper {
 
 
         Imgproc.cvtColor(output, output, Imgproc.COLOR_GRAY2BGRA);
-//        float sum_0 = 0;
-//        float sum_1 = 0;
-//        float sum_2 = 0;
-//
-//        for (int i = 0; i < output.rows(); i++) {
-//            for (int j = 0; j < output.cols(); j++) {
-//                sum_0 += input.get(i, j)[0];
-//                sum_1 += input.get(i, j)[1];
-//                sum_2 += input.get(i, j)[2];
-//            }
-//        }
-//
-//        int mean_0 = (int) sum_0 / (input.rows() * input.cols());
-//        int mean_1 = (int) sum_1 / (input.rows() * input.cols());
-//        int mean_2 = (int) sum_2 / (input.rows() * input.cols());
-//
-//        int max_mean = Math.max(Math.max(mean_0, mean_1), mean_2);
-//
-//        double ratio_0 = 0.6;
-//        double ratio_1 = 0.6;
-//        double ratio_2 = 0.6;
-//
-//
-//        if (max_mean == mean_0) {
-//            ratio_0 = 1.5;
-//        } else if (max_mean == mean_1) {
-//            ratio_1 = 1.5;
-//        } else {
-//            ratio_2 = 1.5;
-//        }
         SharedPreferences preferences = context.getSharedPreferences
                 (context.getString(R.string.preference_key), Context.MODE_PRIVATE);
-
-        // Convert HEX to RGB?
-        // Check if there is a
-        // String hex = String.format("#%02x%02x%02x", r, g,b);
-
-//        mean_0 = (int) Math.min(mean_0 + ratio_0 * mean_0, 255);
-//        mean_1 = (int) Math.min(mean_1 + ratio_1 * mean_1, 255);
-//        mean_2 = (int) Math.min(mean_2 + ratio_2 * mean_2, 255);
 
         int mean_0;
         int mean_1;
