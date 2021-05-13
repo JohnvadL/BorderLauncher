@@ -392,6 +392,23 @@ public class Launcher extends Activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences
+                (getApplicationContext().getString(R.string.preference_key), Context.MODE_PRIVATE);
+
+
+        if (!preferences.contains("initialized")){
+
+            SharedPreferences.Editor ed = preferences.edit();
+            ed.putBoolean("initialized", true );
+            ed.commit();
+
+            Intent myIntent = new Intent(Launcher.this, Initialization.class);
+            Launcher.this.startActivity(myIntent);
+
+        }
+
         if (DEBUG_STRICT_MODE) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                     .detectDiskReads()
@@ -988,8 +1005,7 @@ public class Launcher extends Activity
             Log.v(TAG, "Launcher.onResume()");
         }
 
-        Intent myIntent = new Intent(Launcher.this, Initialization.class);
-        Launcher.this.startActivity(myIntent);
+
 
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.preOnResume();

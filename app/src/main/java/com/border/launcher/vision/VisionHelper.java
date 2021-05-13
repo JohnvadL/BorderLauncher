@@ -17,16 +17,10 @@ import org.opencv.imgproc.Imgproc;
 
 public class VisionHelper {
 
-    public static Bitmap colorLogo(Bitmap bmp, Context context) {
-        String a = "a";
-        Integer.parseInt(a, 16);
-        return null;
-    }
 
     public static void getNewImage(Bitmap bmp, String packageName, Context context) {
 
         System.loadLibrary("opencv_java3");
-
         Mat input = new Mat();
         // Convert image to bmp
         Bitmap image = bmp.copy(Bitmap.Config.ARGB_8888, true);
@@ -35,7 +29,6 @@ public class VisionHelper {
 
         // Aperture size is problematic: Causes textured outputs
         Imgproc.Canny(input, output, 100, 200, 3, false);
-        // Imgproc.threshold(output, output, 100, 255, Imgproc.THRESH_BINARY);
 
         Log.e("VisionHelper", "TEST");
         Log.e("VisionHelper", packageName);
@@ -45,7 +38,6 @@ public class VisionHelper {
 
         // TODO: Use Dilate to make icons better
         Mat m = new Mat(new Size(4, 4), CvType.CV_8U, new Scalar(1));
-
 
         Imgproc.cvtColor(output, output, Imgproc.COLOR_GRAY2BGRA);
         SharedPreferences preferences = context.getSharedPreferences
