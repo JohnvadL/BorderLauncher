@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.border.launcher.R;
+import com.border.launcher.initialization.Initialization;
 
 import org.opencv.android.Utils;
 import org.opencv.core.CvType;
@@ -19,6 +20,10 @@ public class VisionHelper {
 
 
     public static void getNewImage(Bitmap bmp, String packageName, Context context) {
+
+        if (Initialization.initializing) {
+            Initialization.updateProgress();
+        }
 
         System.loadLibrary("opencv_java3");
         Mat input = new Mat();

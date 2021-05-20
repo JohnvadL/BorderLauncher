@@ -85,6 +85,10 @@
             android:exported="false"
             android:readPermission="com.android.launcher3.permission.READ_SETTINGS"
             android:writePermission="com.android.launcher3.permission.WRITE_SETTINGS" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8740868652021070~4917765434"/>
     </application>
 
 </manifest>

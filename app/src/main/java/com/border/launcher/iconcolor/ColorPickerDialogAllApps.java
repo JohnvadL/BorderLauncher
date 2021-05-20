@@ -126,7 +126,6 @@ public class ColorPickerDialogAllApps extends Activity implements View.OnClickLi
             default:
                 finish();
                 ColorPickerDialogAllApps.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
         }
     }
 

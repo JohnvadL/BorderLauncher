@@ -140,6 +140,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import com.google.android.gms.ads.MobileAds;
+
 /**
  * Default launcher application.
  */
@@ -408,6 +410,8 @@ public class Launcher extends Activity
             Launcher.this.startActivity(myIntent);
 
         }
+
+        MobileAds.initialize(this);
 
         if (DEBUG_STRICT_MODE) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()

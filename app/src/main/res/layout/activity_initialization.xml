@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_height="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="wrap_content">
 
     <ImageView
-        android:background="@drawable/pattern_cropped"
         android:id="@+id/image_view"
+        android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_marginBottom="20dp"
-        android:layout_width="match_parent"
-        />
+        android:background="@drawable/pattern_cropped" />
 
 
     <ImageView
+        android:id="@+id/full_title"
         android:layout_width="210dp"
         android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/full_title"
-        android:layout_marginBottom="20dp"
         android:layout_alignBottom="@+id/image_view"
-        android:background="@drawable/full_title"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/full_title" />
 
     <TextView
-        android:fontFamily="sans-serif-thin"
-        android:layout_below="@id/image_view"
         android:id="@+id/text_1"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_view"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-thin"
         android:gravity="left"
         android:paddingLeft="20dp"
         android:text="Welcome to the worlds most customizable Launcher"
@@ -37,68 +35,73 @@
         android:textSize="20sp" />
 
     <TextView
-        android:fontFamily="sans-serif-thin"
         android:id="@+id/text_2"
-        android:layout_below="@id/text_1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text_1"
+        android:layout_alignStart="@id/text_1"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
-        android:layout_alignStart="@id/text_1"
+        android:fontFamily="sans-serif-thin"
         android:gravity="left"
-        android:layout_width="wrap_content"
         android:text="With Border, you can customize \neach icon to be one of 16M colors"
         android:textColor="#000000"
         android:textSize="20sp" />
 
 
     <TextView
-        android:fontFamily="sans-serif-thin"
         android:id="@+id/text_3"
-        android:layout_below="@id/text_2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text_2"
+        android:layout_alignStart="@id/text_1"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
-        android:layout_alignStart="@id/text_1"
+        android:fontFamily="sans-serif-thin"
         android:gravity="left"
-        android:layout_width="wrap_content"
         android:text="Just press and hold the home screen to get started on your journey!"
         android:textColor="#000000"
         android:textSize="20sp" />
 
 
-
     <TextView
-        android:fontFamily="sans-serif-thin"
         android:id="@+id/text_4"
-        android:layout_below="@id/text_3"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_alignStart="@id/text_1"
-        android:gravity="left"
         android:layout_width="wrap_content"
-        android:text="We're excited to see your creations!"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_3"
+        android:layout_alignStart="@id/text_1"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="left"
+        android:text="We're excited to see how you customize your new home!"
         android:textColor="#000000"
         android:textSize="20sp" />
 
-    <android.support.v4.view.ViewPager
-        android:layout_below="@id/full_title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 
     <Button
         android:id="@+id/init_get_started_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:textSize="20sp"
         android:layout_below="@id/text_4"
-        android:layout_marginTop="20dp"
         android:layout_alignParentBottom="true"
-        android:textColor="#FFFFFF"
-        android:paddingBottom="30dp"
-        android:fontFamily="sans-serif-thin"
+        android:layout_marginTop="20dp"
         android:background="#0c77a1"
-        android:text="GET STARTED" />
+        android:fontFamily="sans-serif-thin"
+        android:paddingBottom="30dp"
+        android:text="GET STARTED"
+        android:textColor="#FFFFFF" />
 
+    <ProgressBar
+        android:id="@+id/loading_bar"
+        android:layout_width="wrap_content"
+        android:layout_margin="50dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_height="20dp"
+        android:layout_below="@id/text_4"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>

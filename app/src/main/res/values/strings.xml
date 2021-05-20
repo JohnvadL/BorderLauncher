@@ -260,5 +260,6 @@
 
     <!-- Accessibility description for the shortcuts menu shown for an app. -->
     <string name="shortcuts_menu_description"><xliff:g example="3" id="number_of_shortcuts">%1$d</xliff:g> shortcuts for <xliff:g example="Messenger" id="app_name">%2$s</xliff:g></string>
+    <string name="start_launcher">Get Started!</string>
 
 </resources>
