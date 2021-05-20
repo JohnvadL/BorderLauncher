@@ -71,6 +71,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+        ads:adUnitId="ca-app-pub-8740868652021070/4384510444" />
 
-</RelativeLayout><!--                ads:adUnitId="ca-app-pub-8740868652021070/4384510444"-->
+</RelativeLayout>
+
+    <!--   mine :: ads:adUnitId="ca-app-pub-8740868652021070/4384510444"-->
+<!--    TEST ::  ads:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
