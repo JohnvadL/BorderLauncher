@@ -22,9 +22,10 @@
 
     <TextView
         android:id="@+id/text_1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/image_view"
+        android:autoSizeTextType="uniform"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="sans-serif-thin"
@@ -32,12 +33,14 @@
         android:paddingLeft="20dp"
         android:text="Welcome to the worlds most customizable Launcher"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="100sp" />
 
     <TextView
         android:id="@+id/text_2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
         android:layout_below="@id/text_1"
         android:layout_alignStart="@id/text_1"
         android:layout_marginStart="20dp"
@@ -46,12 +49,14 @@
         android:gravity="left"
         android:text="With Border, you can customize \neach icon to be one of 16M colors"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="100sp"
+        />
 
 
     <TextView
         android:id="@+id/text_3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_2"
         android:layout_alignStart="@id/text_1"
@@ -61,22 +66,28 @@
         android:gravity="left"
         android:text="Just press and hold the home screen to get started on your journey!"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="100sp"
+        />
 
 
     <TextView
         android:id="@+id/text_4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_3"
         android:layout_alignStart="@id/text_1"
         android:layout_marginStart="20dp"
+        android:autoSizeTextType="uniform"
         android:layout_marginBottom="10dp"
         android:fontFamily="sans-serif-thin"
         android:gravity="left"
         android:text="We're excited to see how you customize your new home!"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="100sp"
+        />
 
 
     <Button

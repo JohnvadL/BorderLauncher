@@ -85,7 +85,7 @@ public class DragPreviewProvider {
             }
             destCanvas.translate(-mView.getScrollX() + DRAG_BITMAP_PADDING / 2,
                     -mView.getScrollY() + DRAG_BITMAP_PADDING / 2);
-            destCanvas.clipRect(clipRect, Op.REPLACE);
+            // destCanvas.clipRect(clipRect, Op.REPLACE);
             mView.draw(destCanvas);
 
             // Restore text visibility of FolderIcon if necessary

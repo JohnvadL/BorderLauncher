@@ -1016,7 +1016,7 @@ public class DragLayer extends InsettableFrameLayout {
             if (currCellLayout != null && currCellLayout != mLauncher.getHotseat().getLayout()) {
                 // Cut a hole in the darkening scrim on the page that should be highlighted, if any.
                 getDescendantRectRelativeToSelf(currCellLayout, mHighlightRect);
-                canvas.clipRect(mHighlightRect, Region.Op.DIFFERENCE);
+                // canvas.clipRect(mHighlightRect, Region.Op.DIFFERENCE);
             }
             canvas.drawColor((alpha << 24) | SCRIM_COLOR);
             canvas.restore();
