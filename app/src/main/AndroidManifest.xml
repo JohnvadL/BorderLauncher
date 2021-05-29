@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.border.launcher"
+    package="com.border.launcherfree"
 >
 
     <permission
@@ -24,7 +24,7 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
 
     <application
-        android:backupAgent=".LauncherBackupAgent"
+        android:backupAgent="com.border.launcherfree.LauncherBackupAgent"
         android:fullBackupContent="@xml/backupscheme"
         android:fullBackupOnly="true"
         android:hardwareAccelerated="true"
@@ -34,18 +34,18 @@
         android:restoreAnyVersion="true"
         android:supportsRtl="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".initialization.Initialization"></activity>
-        <activity android:name=".newsettings.NewSettingsActivity" />
-        <activity android:name=".iconcolor.IconActivity" />
+        <activity android:name="com.border.launcherfree.initialization.Initialization" />
+        <activity android:name="com.border.launcherfree.newsettings.NewSettingsActivity" />
+        <activity android:name="com.border.launcherfree.iconcolor.IconActivity" />
         <activity
-            android:name=".iconcolor.ColorPickerDialogAllApps"
+            android:name="com.border.launcherfree.iconcolor.ColorPickerDialogAllApps"
             android:theme="@style/Theme.Transparent" />
         <!--
         Main launcher activity. When extending only change the name, and keep all the
         attributes and intent filters the same
         -->
         <activity
-            android:name=".Launcher"
+            android:name="com.border.launcherfree.Launcher"
             android:clearTaskOnLaunch="true"
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:enabled="true"
@@ -66,7 +66,7 @@
             </intent-filter>
         </activity> <!-- The settings activity. When extending keep the intent filter present -->
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.border.launcherfree.SettingsActivity"
             android:autoRemoveFromRecents="true"
             android:label="@string/settings_button_text">
             <intent-filter>
@@ -81,7 +81,7 @@
         represent the package name.
         -->
         <provider
-            android:name=".LauncherProvider"
+            android:name="com.border.launcherfree.LauncherProvider"
             android:authorities="com.android.launcher3.settings"
             android:exported="false"
             android:readPermission="com.android.launcher3.permission.READ_SETTINGS"
