@@ -9,7 +9,7 @@ Border Launcher was built off the AOSP launcher and lets the user create custom 
 ## screenshots
 Users can choose to change some, all or individual icons to be the color they want
 
-Icons after processing             |  Coloring all icons         |  Batch coloring
+Icons after processing             |  Coloring all icons         |  Individual coloring
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](./screen1.jpg)       |  ![](./screen2.jpg)       | ![](./screen3.jpg) |
 
